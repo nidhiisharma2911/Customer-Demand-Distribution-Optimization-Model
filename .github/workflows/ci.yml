@@ -26,9 +26,12 @@ jobs:
         run: python -m src.run_scenarios
 
       - name: Execute analysis notebooks
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
-          jupyter nbconvert --to notebook --execute notebooks/demand_analysis.ipynb --output demand_analysis_executed.ipynb --output-dir notebooks --ExecutePreprocessor.timeout=120
-          jupyter nbconvert --to notebook --execute notebooks/scenario_analysis.ipynb --output scenario_analysis_executed.ipynb --output-dir notebooks --ExecutePreprocessor.timeout=120
+          mkdir -p notebooks
+          jupyter nbconvert --to notebook --execute notebooks/demand_analysis.ipynb --output demand_analysis_executed.ipynb --output-dir notebooks --ExecutePreprocessor.timeout=300
+          jupyter nbconvert --to notebook --execute notebooks/scenario_analysis.ipynb --output scenario_analysis_executed.ipynb --output-dir notebooks --ExecutePreprocessor.timeout=300
 
       - name: Run tests
         run: pytest -q
