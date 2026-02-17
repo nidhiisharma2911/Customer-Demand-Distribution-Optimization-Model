@@ -1,0 +1,59 @@
+{
+  "layout": {
+    "page": {
+      "width": 1200,
+      "height": 800,
+      "background": "#ffffff"
+    },
+    "visuals": [
+      {
+        "id": "v1",
+        "type": "card",
+        "title": "Total logistics cost",
+        "measure": "TotalLogisticsCost",
+        "x": 20,
+        "y": 20,
+        "w": 200,
+        "h": 120,
+        "sample_image": "dashboard/screenshots/total_cost.png"
+      },
+      {
+        "id": "v2",
+        "type": "bar",
+        "title": "Warehouse utilization",
+        "axis": "warehouse_id",
+        "value": "WarehouseUtilization",
+        "x": 240,
+        "y": 20,
+        "w": 440,
+        "h": 300,
+        "sample_image": "dashboard/screenshots/warehouse_utilization.png"
+      },
+      {
+        "id": "v3",
+        "type": "clustered_bar",
+        "title": "Demand vs Supply",
+        "axis": "customer_id",
+        "values": ["TotalDemand", "TotalSupplied"],
+        "x": 20,
+        "y": 160,
+        "w": 660,
+        "h": 320,
+        "sample_image": "dashboard/screenshots/demand_vs_supply.png"
+      },
+      {
+        "id": "v4",
+        "type": "bar",
+        "title": "Scenario comparison",
+        "axis": "scenario",
+        "value": "total_cost",
+        "x": 700,
+        "y": 20,
+        "w": 460,
+        "h": 300,
+        "sample_image": "dashboard/screenshots/scenario_comparison.png"
+      }
+    ]
+  },
+  "notes": "Place sample PNGs in dashboard/screenshots/ for visual previews. Use the Power BI recipe in README.md to recreate visuals."
+}

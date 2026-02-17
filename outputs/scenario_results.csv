@@ -1,0 +1,5 @@
+scenario,total_cost,status,allocation_csv
+baseline,905.0,Optimal,/workspaces/Customer-Demand-Distribution-Optimization-Model/outputs/scenario_baseline/optimal_allocation.csv
+demand_increase_20pct,1146.0,Optimal,/workspaces/Customer-Demand-Distribution-Optimization-Model/outputs/scenario_demand_increase_20pct/optimal_allocation.csv
+capacity_reduction_30pct,995.0,Optimal,/workspaces/Customer-Demand-Distribution-Optimization-Model/outputs/scenario_capacity_reduction_30pct/optimal_allocation.csv
+cost_increase_25pct,1131.25,Optimal,/workspaces/Customer-Demand-Distribution-Optimization-Model/outputs/scenario_cost_increase_25pct/optimal_allocation.csv
