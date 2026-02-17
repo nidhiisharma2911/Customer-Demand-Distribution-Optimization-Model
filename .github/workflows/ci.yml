@@ -27,8 +27,8 @@ jobs:
 
       - name: Execute analysis notebooks
         run: |
-          jupyter nbconvert --to notebook --execute notebooks/demand_analysis.ipynb --output notebooks/demand_analysis_executed.ipynb --ExecutePreprocessor.timeout=120
-          jupyter nbconvert --to notebook --execute notebooks/scenario_analysis.ipynb --output notebooks/scenario_analysis_executed.ipynb --ExecutePreprocessor.timeout=120
+          jupyter nbconvert --to notebook --execute notebooks/demand_analysis.ipynb --output demand_analysis_executed.ipynb --output-dir notebooks --ExecutePreprocessor.timeout=120
+          jupyter nbconvert --to notebook --execute notebooks/scenario_analysis.ipynb --output scenario_analysis_executed.ipynb --output-dir notebooks --ExecutePreprocessor.timeout=120
 
       - name: Run tests
         run: pytest -q
