@@ -1,5 +1,8 @@
 import pandas as pd
 from pathlib import Path
+import sys
+# ensure repo root is on PYTHONPATH for tests
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.optimization_model import build_and_solve
 
 
@@ -30,4 +33,3 @@ def test_infeasible_when_capacity_insufficient(tmp_path):
 
     # Solver should not report Optimal because capacity < demand
     assert res['status'] != 'Optimal'
-*** End Patch

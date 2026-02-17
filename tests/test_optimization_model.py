@@ -1,6 +1,9 @@
 import tempfile
 from pathlib import Path
+import sys
 import pandas as pd
+# ensure repo root is on PYTHONPATH for tests
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.optimization_model import build_and_solve
 
 
