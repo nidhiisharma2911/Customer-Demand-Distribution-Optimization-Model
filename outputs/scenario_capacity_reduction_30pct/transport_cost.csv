@@ -1,0 +1,7 @@
+warehouse_id,customer_id,cost_per_unit
+W1,C1,2.5
+W1,C2,3.0
+W1,C3,2.0
+W2,C1,4.0
+W2,C2,2.5
+W2,C3,3.5

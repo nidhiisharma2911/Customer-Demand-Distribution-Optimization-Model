@@ -1,0 +1,37 @@
+{
+  "tables": {
+    "Allocations": {
+      "sourceFiles": [
+        "outputs/optimal_allocation.csv",
+        "outputs/scenario_baseline/optimal_allocation.csv",
+        "outputs/scenario_demand_increase_20pct/optimal_allocation.csv",
+        "outputs/scenario_capacity_reduction_30pct/optimal_allocation.csv",
+        "outputs/scenario_cost_increase_25pct/optimal_allocation.csv"
+      ],
+      "notes": "Append the scenario CSVs and add a 'scenario' column in Power Query. Columns: warehouse_id, customer_id, quantity, cost_per_unit, total_cost, scenario"
+    },
+    "ScenarioResults": {
+      "sourceFile": "outputs/scenario_results.csv",
+      "columns": ["scenario","total_cost","status","allocation_csv"]
+    },
+    "Customers": {
+      "sourceFile": "data/customers.csv",
+      "columns": ["customer_id","x","y","demand"]
+    },
+    "Warehouses": {
+      "sourceFile": "data/warehouses.csv",
+      "columns": ["warehouse_id","x","y","capacity"]
+    }
+  },
+  "relationships": [
+    {"fromTable":"Allocations","fromColumn":"warehouse_id","toTable":"Warehouses","toColumn":"warehouse_id"},
+    {"fromTable":"Allocations","fromColumn":"customer_id","toTable":"Customers","toColumn":"customer_id"}
+  ],
+  "measures": {
+    "TotalLogisticsCost": "SUM(Allocations[total_cost])",
+    "WarehouseUtilization": "DIVIDE(SUM(Allocations[quantity]), SUM(Warehouses[capacity]), 0)",
+    "TotalDemand": "SUM(Customers[demand])",
+    "TotalSupplied": "SUM(Allocations[quantity])",
+    "UnmetDemand": "[TotalDemand] - [TotalSupplied]"
+  }
+}
